@@ -1,27 +1,70 @@
+/* Base card structure */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 0 2rem;
 }
 
+@media (min-width: 1000px) {
+  .cards > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card item styling */
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards .cards-card-body {
-  margin: 16px;
-}
-
-.cards .cards-card-image {
-  line-height: 0;
-}
-
-.cards > ul > li img {
+  border: none;
+  border-radius: 0.5rem;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Card content structure */
+.cards .cards-card-body {
+  text-align: center;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 24rem;
+  justify-content: flex-start;
+}
+
+/* Card image container */
+.cards .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+/* Card content spacing */
+.cards .cards-card-body h3 {
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  width: 100%;
+}
+
+.cards .cards-card-body p {
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* Button container base styling */
+.cards .cards-card-body .button-container {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -378,7 +378,7 @@ main .button-container .button.primary {
   align-items: center;
   width: 280px;
   min-height: 3rem;
-  padding: 0.75rem 1.5rem;
+  padding: 1.75rem 3.5rem
   text-align: center;
   white-space: normal;
   line-height: 1.2;
@@ -421,3 +421,303 @@ main .button-container + .button-container {
     top: 2rem;
   }
 }
+
+/* Services grid section styling */
+.section.services-grid {
+  background: linear-gradient(to bottom, #000, #111);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  margin: 0; /* Remove default section margin */
+}
+
+/* Adjust text colors for dark background */
+.section.services-grid h3,
+.section.services-grid p {
+  color: white;
+}
+
+/* Adjust link colors in the dark background */
+.section.services-grid a:not(.button) {
+  color: rgb(132 204 22 / var(--tw-text-opacity, 1));
+}
+
+.section.services-grid a:not(.button):hover {
+  color: rgb(163 230 53 / var(--tw-text-opacity, 1));
+}
+
+/* Ensure buttons maintain proper contrast */
+.section.services-grid .button {
+  background-color: rgb(132 204 22 / var(--tw-text-opacity, 1));
+  color: black;
+}
+
+.section.services-grid .button:hover {
+  background-color: rgb(163 230 53 / var(--tw-text-opacity, 1));
+}
+
+/* Services grid layout adjustments */
+.section.services-grid .cards > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+/* Ensure proper display on larger screens */
+@media (min-width: 1000px) {
+  .section.services-grid .cards > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card styling with gradient background and hover effect */
+.section.services-grid .cards > ul > li {
+  border: none;
+  background: linear-gradient(to bottom, 
+    rgb(31 41 55 / 0.9),
+    rgb(17 24 39 / 0.9)
+  );
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card hover effect with lighter green tint */
+.section.services-grid .cards > ul > li:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(to bottom, 
+    rgb(132 204 22 / 0.1),
+    rgb(132 204 22 / 0.05)
+  );
+}
+
+/* Image container with background and top spacing */
+.section.services-grid .cards .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem 1rem 1rem; /* Increased top padding */
+}
+
+/* Image background styling */
+.section.services-grid .cards .cards-card-image::before {
+  content: '';
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #0000004d;
+  border-radius: 1rem;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Image styling */
+.section.services-grid .cards .cards-card-image img {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+/* Combined hover effects for image and background */
+.section.services-grid .cards > ul > li:hover .cards-card-image::before {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.section.services-grid .cards > ul > li:hover .cards-card-image img {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* Card layout with fixed height */
+.section.services-grid .cards .cards-card-body {
+  text-align: center;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  min-height: 24rem;
+  justify-content: flex-start;
+}
+
+/* Content area */
+.section.services-grid .cards .cards-card-body > div:not(.button-container) {
+  margin-bottom: auto;
+}
+
+/* Button container positioning and centering */
+.section.services-grid .cards .cards-card-body .button-container {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button styling with centering */
+.section.services-grid .cards .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(132 204 22 / var(--tw-text-opacity, 1));
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto; /* Center horizontally */
+  width: auto; /* Allow button to size to content */
+  min-width: 8rem; /* Minimum width for consistency */
+}
+
+/* Button hover effects */
+.section.services-grid .cards .button:hover {
+  background-color: rgb(135 221 0 / var(--tw-bg-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1),
+              0 4px 6px -4px rgb(0 0 0 / .1);
+}
+
+/* Maintain other necessary styles */
+.section.services-grid .cards .cards-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+/* Card headlines */
+.section.services-grid .cards .cards-card-body h3 {
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  width: 100%;
+  font-size: var(--heading-font-size-m);
+}
+
+/* First paragraph after headline */
+.section.services-grid .cards .cards-card-body h3 + p {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+  font-size: var(--body-font-size-s);
+}
+
+/* Regular paragraphs */
+.section.services-grid .cards .cards-card-body p {
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+  font-size: var(--body-font-size-s);
+}
+/* Keep all other existing styles */
+.section.services-grid .cards .cards-card-body {
+  text-align: center;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  min-height: 24rem;
+  justify-content: flex-start;
+}
+
+.section.services-grid .cards .cards-card-body > div:not(.button-container) {
+  margin-bottom: auto;
+}
+
+.section.services-grid .cards .cards-card-body .button-container {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.services-grid .cards .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(132 204 22 / var(--tw-text-opacity, 1));
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto;
+  width: auto;
+  min-width: 8rem;
+  font-size: var(--body-font-size-s);
+}
+
+.section.services-grid .cards .button:hover {
+  background-color: rgb(135 221 0 / var(--tw-bg-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1),
+              0 4px 6px -4px rgb(0 0 0 / .1);
+}
+
+/* Services grid section specific styling */
+.section.services-grid {
+  background: linear-gradient(to bottom, #000, #111);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Card specific theme styling */
+.section.services-grid .cards > ul > li {
+  background: linear-gradient(to bottom, 
+    rgb(31 41 55 / 0.9),
+    rgb(17 24 39 / 0.9)
+  );
+}
+
+/* Card content theme styling */
+.section.services-grid .cards .cards-card-body h3 {
+  font-size: var(--heading-font-size-m);
+  color: white;
+}
+
+.section.services-grid .cards .cards-card-body h3 + p {
+  font-weight: 600;
+  font-size: var(--body-font-size-s);
+  color: white;
+}
+
+.section.services-grid .cards .cards-card-body p {
+  font-size: var(--body-font-size-s);
+  color: white;
+}
+
+/* Button theme styling */
+.section.services-grid .cards .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(132 204 22 / var(--tw-text-opacity, 1));
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto;
+  width: auto;
+  min-width: 8rem;
+  font-size: var(--body-font-size-s);
+}
+
+.section.services-grid .cards .button:hover {
+  background-color: rgb(135 221 0 / var(--tw-bg-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1),
+              0 4px 6px -4px rgb(0 0 0 / .1);
+}
+
