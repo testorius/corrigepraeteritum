@@ -18,3 +18,40 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
+.footer .default-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.footer .default-content-wrapper p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer .default-content-wrapper p:first-child {
+  white-space: nowrap;
+}
+
+.footer .default-content-wrapper p:first-child img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.footer .default-content-wrapper p:last-child {
+  gap: 1.5rem;
+}
+
+.footer .default-content-wrapper p:last-child a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer .default-content-wrapper p:last-child a:hover {
+  text-decoration: underline;
+}
