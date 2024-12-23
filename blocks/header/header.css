@@ -1,22 +1,32 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.95) 87%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   width: 100%;
   z-index: 2;
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
+    'hamburger brand tools' auto
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
-  height: var(--nav-height);
+  max-width: 1320px;
   padding: 0 24px;
   font-family: var(--body-font-family);
 }
@@ -35,7 +45,7 @@ header nav[aria-expanded='true'] {
     display: flex;
     justify-content: space-between;
     gap: 0 32px;
-    max-width: 1264px;
+    max-width: 1440px;
     padding: 0 32px;
   }
 
@@ -136,25 +146,89 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 }
 
 /* brand */
-header .nav-brand {
+header .nav-brand,
+.section.nav-brand {
   grid-area: brand;
   flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
+  white-space: nowrap;
+  height: 100%;
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 2.5rem;
   height: auto;
+}
+
+/* Fix the nested paragraph and anchor alignment */
+.section.nav-brand .default-content-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.section.nav-brand .default-content-wrapper p {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section.nav-brand .default-content-wrapper p a {
+  display: flex;
+  align-items: center;
+}
+
+/* General navbar styling */
+.section.nav-sections {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.section.nav-sections .default-content-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.section.nav-sections ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+}
+
+.button-container {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure the navigation bar is fully responsive */
+nav {
+  width: 100%;
 }
 
 /* sections */
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
-  display: none;
-  visibility: hidden;
+  display: block;
+  visibility: visible;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
@@ -265,4 +339,82 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+/* Header-specific button styles */
+header nav a.button:any-link {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--button-bg-color);
+  color: var(--background-color);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+header nav a.button:hover,
+header nav a.button:focus {
+  background-color: var(--button-hover-bg-color);
+  box-shadow: var(--button-hover-shadow);
+  cursor: pointer;
+}
+
+header nav a.button.secondary {
+  background-color: unset;
+  border: 2px solid currentcolor;
+  color: var(--text-color);
+}
+
+/* Style for all navbar links */
+.section.nav-sections ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+}
+
+/* Style for Home link specifically */
+.section.nav-sections ul li a[title="Home"] {
+  color: rgb(132, 204, 22);
+  text-decoration: none;
+}
+
+.section.nav-sections ul li a[title="Home"]::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  height: 2px;
+  background-color: rgb(132, 204, 22);
+}
+
+/* Hover style for all navbar links */
+.section.nav-sections ul li a:hover {
+  color: rgb(132, 204, 22);
+  text-decoration: none;
+}
+
+.section.nav-sections ul li a:hover::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  height: 2px;
+  background-color: rgb(132, 204, 22);
 }
